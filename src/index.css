@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+*{
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+body{
+    background: #d8ecff;
+}
