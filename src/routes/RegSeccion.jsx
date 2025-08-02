@@ -33,10 +33,8 @@ const RegistroForm = () => {
       return;
     }
 
-    // --- Lógica de registro para almacenar en localStorage ---
     let registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
-    // Verificar si el usuario o email ya existen (simulación)
     const userExists = registeredUsers.some(user => user.username === username || user.email === email);
     if (userExists) {
       setMessage('El nombre de usuario o correo electrónico ya está registrado.');
@@ -44,15 +42,13 @@ const RegistroForm = () => {
       return;
     }
 
-    const newUser = { username, email, password }; // NO GUARDES LA CONTRASEÑA EN PRODUCCIÓN ASÍ
+    const newUser = { username, email, password }; 
     registeredUsers.push(newUser);
     localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
-    // --- Fin de lógica de registro ---
 
     setMessage('¡Registro exitoso! Redirigiendo al inicio de sesión...');
     setMessageType('success');
 
-    // Limpiar campos
     setUsername('');
     setEmail('');
     setPassword('');
